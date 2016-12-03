@@ -9,12 +9,12 @@ export default class App extends React.Component {
   renderTabs() {
     return [
       {
-        content: <HomePage />,
-        tab: <Tab label='Home' icon='md-home' />
+        content: <HomePage key='page1'/>,
+        tab: <Tab key='tab1' label='Home' icon='md-home' />
       },
       {
-        content: <SettingsPage />,
-        tab: <Tab label='Settings' icon='md-settings' />
+        content: <SettingsPage key='page2'/>,
+        tab: <Tab key='tab2' label='Settings' icon='md-settings' />
       }
     ]
   }
