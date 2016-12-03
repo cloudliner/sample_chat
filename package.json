@@ -3,6 +3,7 @@
   "version": "2.2.2+20161024.1",
   "description": "",
   "dependencies": {
+    "firebase": "^3.6.2",
     "onsenui": "^2.0.0-rc.5",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
