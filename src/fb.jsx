@@ -48,3 +48,46 @@ export function handleAddedMessage(callback) {
     callback(data.val());
   });
 }
+
+///////step2で追加/////////
+var provider = new firebase.auth.TwitterAuthProvider();
+export function login() {
+  firebase.auth().signInWithRedirect(provider);
+}
+
+firebase.auth().getRedirectResult().then(function(result) {
+  console.log("login");
+  if(result.user) {
+    user = {
+      uid:result.user.uid,
+      displayName:result.user.displayName,
+      photoURL:result.user.photoURL,
+      signin:true
+    }
+    applyChangedUserCallbacks.forEach(function(callback) {
+      callback(getUser());
+    });
+  }
+}).catch(function(error) {
+  console.log(error);
+  alert("ログインに失敗しました:" + error.message);
+});
+
+
+export function logout() {
+  console.log("logout");
+  user = defaultUser;
+  applyChangedUserCallbacks.forEach(function(callback) {
+    callback(getUser());
+  });
+  firebase.auth().signOut().then(function() {
+    console.log("logout success");
+  }, function(error) {
+    console.log("logout error");
+  });
+}
+
+var applyChangedUserCallbacks = [];
+export function handleChengedUser(callback) {
+  applyChangedUserCallbacks.push(callback);
+}

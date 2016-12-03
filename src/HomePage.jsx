@@ -23,6 +23,12 @@ export default class HomePage extends React.Component {
 
     //iPhoneで入力フォームがスクロールされてしまう問題の対応
     document.getElementById('chat').parentNode.style.overflow = 'visible';
+
+    ///////step2で追加 start /////////
+    fb.handleChengedUser(function(user) {
+      this.setState({"user": user});
+    }.bind(this));
+    ///////step2で追加 end /////////
   }
 
   componentDidUpdate() {
