@@ -1,7 +1,11 @@
 import firebase from 'firebase';
 
 var config = {
-  //ここに設定をコピー
+  apiKey: "AIzaSyDmyO7ICjOD4oxfMBKhXZL7RxMsJ015XkM",
+  authDomain: "sample-chat-81df8.firebaseapp.com",
+  databaseURL: "https://sample-chat-81df8.firebaseio.com",
+  storageBucket: "sample-chat-81df8.appspot.com",
+  messagingSenderId: "560564864667"
 };
 firebase.initializeApp(config);
 
